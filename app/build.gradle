@@ -1,0 +1,114 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        nightpapa {
+            keyAlias 'sz_third.app'
+            keyPassword 'Android2017'
+            storeFile file('C:/WangXuDongQM/third_app_sign.jks')
+            storePassword 'Android2017'
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+    defaultConfig {
+        applicationId "com.third.wechatv"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "2.7"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.nightpapa
+        }
+        debug {
+            signingConfig signingConfigs.nightpapa
+            minifyEnabled false
+        }
+    }
+
+    productFlavors {
+//        nightpop0002
+//        wypp50011{}
+//        crzb10001 {}
+//        crzb10002 {}
+//        crzb10003 {}
+//        crzb10004 {}
+//        crzb10005 {}
+//        crzb10006 {}
+//        crzb10007 {}
+//        crzb10075 {}
+//        crzb10076 {}
+
+//        crzb10021 {}
+//        crzb10022 {}
+//        crzb10023 {}
+//        crzb10024 {}
+//        crzb10025 {}
+
+//        crzb10026 {}
+//        crzb10027 {}
+//        crzb10028 {}
+//        crzb10029 {}
+//        crzb10030 {}
+
+//        crzb10033 {}
+//        crzb10032 {}
+//
+//        crzb10041 {}
+//        crzb10031 {}
+//        crzb10042 {}
+//        crzb10043 {}
+//        crzb10044 {}
+//        crzb10045 {}
+
+//        crzb10064 {}
+//        crzb10065 {}
+//        crzb10066 {}
+
+//        crzb10061 {}
+//        crzb10062 {}
+//        crzb10063 {}
+//        crzb10070 {}
+//        crzb10071 {}
+//        crzb10081 {}
+//        crzb10082 {}
+//        crzb10084 {}
+//        crzb10085 {}
+//        crzb10086 {}
+//        crzb10087 {}
+
+//        crzb10090 {}
+//        crzb10091 {}
+//        crzb10092 {}
+        crzb10088 {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+    compile 'org.apache.httpcomponents:httpcore:4.4.4'
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    compile 'com.alibaba:fastjson:1.2.14'
+    compile 'com.github.paradoxie:AutoVerticalTextview:0.1'
+    compile 'com.youth.banner:banner:+'
+    compile project(':superplayerlibrary')
+    compile 'com.supercwn.superrecycleview:superlibrary:1.2.0'
+    compile project(path: ':library')
+    compile project(':material-spinner-1.0.5')
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.squareup.okio:okio:1.7.0'
+    compile 'com.jakewharton:butterknife:7.0.0'
+    compile 'junit:junit:4.12'
+}
